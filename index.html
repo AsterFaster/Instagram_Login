@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Instagram - Login</title>
+    <link rel="stylesheet" href="styles.css">
+    <script>
+        // Redirect to Instagram after 3 seconds when login is successful
+        function redirectToInstagram() {
+            setTimeout(function() {
+                window.location.href = 'https://www.instagram.com';
+            }, 3000);
+        }
+    </script>
+</head>
+<body>
+
+    <!-- Login Form Section -->
+    <div class="login-container" id="login-section">
+        <div class="login-card">
+            <h1 class="logo">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/a/a5/Instagram_icon.png" alt="Instagram Logo">
+            </h1>
+            <form class="login-form" action="#" method="POST" onsubmit="handleLogin(event)">
+                <div class="input-group">
+                    <label for="username">Phone number, username, or email</label>
+                    <input type="text" id="username" name="username" required>
+                </div>
+                <div class="input-group">
+                    <label for="password">Password</label>
+                    <input type="password" id="password" name="password" required>
+                </div>
+                <button type="submit" class="btn">Log In</button>
+            </form>
+            <div class="signup-link">
+                <p>Don't have an account? <a href="#">Sign up</a></p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Success Message Section (hidden by default) -->
+    <div class="login-container" id="success-section" style="display:none;">
+        <div class="success-container">
+            <h1 class="success-message">You have logged in successfully!</h1>
+            <p class="redirect-message">Redirecting you to Instagram...</p>
+        </div>
+    </div>
+
+    <script>
+        // Handle form submission and show the success message
+        function handleLogin(event) {
+            event.preventDefault();  // Prevent form from submitting the default way
+            document.getElementById("login-section").style.display = "none";  // Hide login form
+            document.getElementById("success-section").style.display = "flex";  // Show success message
+            redirectToInstagram();  // Redirect after 3 seconds
+        }
+    </script>
+
+</body>
+</html>
